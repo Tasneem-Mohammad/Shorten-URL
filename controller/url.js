@@ -13,7 +13,13 @@ export async function HandleGenerateShortUrl(req , res) {
         VisitHistory: [],
     })
 
-    return res.json({id : shortId});
+     const allURLS =await URL.find({});
+
+    return res.render("home" , {
+        id: shortId,
+        urls: allURLS, 
+    })
+    //return res.json({id : shortId});
 }
 
 export async function handleGetAnalytics(req , res) {
