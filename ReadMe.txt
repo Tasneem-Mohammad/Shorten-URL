@@ -11,3 +11,8 @@ GET/URL/analytics/:id -> RETURS CLICKS ON THE PROVIDED SHORT ID
 Phase2: 
 Added the view home and enables the server side rendering through EJS
 GET(/home)
+
+
+TO-DO(future):
+1 Deploy it
+2.Gemini chatbot integration and re-deploy
