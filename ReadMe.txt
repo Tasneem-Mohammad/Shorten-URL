@@ -12,6 +12,11 @@ Phase2:
 Added the view home and enables the server side rendering through EJS
 GET(/home)
 
+Phase3:
+Adding the sessions for login(statefull) and displaying only user's content --in progress--
+
+Phase 4:
+JWT
 
 TO-DO(future):
 1 Deploy it
