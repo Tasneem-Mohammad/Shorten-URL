@@ -11,15 +11,18 @@ export async function HandleGenerateShortUrl(req , res) {
         shortId : shortId,
         redirect: url,
         VisitHistory: [],
+        createdBy : req.user._id,
     })
-
-     const allURLS =await URL.find({});
-
-    return res.render("home" , {
-        id: shortId,
-        urls: allURLS, 
-    })
-    //return res.json({id : shortId});
+    
+    const allURLS = await URL.find({ createdBy: req.user._id });
+    console.log("POST /url HIT");
+    console.log("URLs:", allURLS.length);
+s
+    return res.render("home", {
+    id: shortId,
+    urls: allURLS,
+    });
+    //return res.redirect(`/?id=${shortId}`);
 }
 
 export async function handleGetAnalytics(req , res) {

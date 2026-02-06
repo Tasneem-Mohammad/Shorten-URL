@@ -4,13 +4,23 @@ import URL from "../models/url.js";
 const router = express.Router();
 
 
-router.get('/home' , async(req , res)=>{
-    const allURLS =await URL.find({});
-    res.render('home')
+router.get('/' , async(req , res)=>{
 
-    // {urls: allURLS}-> 
-    // im passing this too in the generateshorturl one 
-    // dont ask why
+    if(!req.user) return res.redirect("/login")
     
+    const allURLS =await URL.find({createdBy : req.user._id });
+
+    res.render('home', {
+        urls: allURLS,
+    });
 })
+router.get("/signup" , (req , res)=>{
+    return res.render("signup")
+})
+
+
+router.get("/login" ,(req , res)=>{
+    return res.render("login")
+});
+
 export default router;
